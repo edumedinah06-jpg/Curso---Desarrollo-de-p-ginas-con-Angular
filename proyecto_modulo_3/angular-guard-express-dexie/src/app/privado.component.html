@@ -1,0 +1,24 @@
+<div class="card p-4">
+  <h2>Área privada</h2>
+  <p>
+    Este componente está protegido por <strong>authGuard</strong>.
+  </p>
+
+  <div class="mb-3">
+    <button class="btn btn-primary me-2" (click)="cargarDesdeApi()">
+      GET: cargar API
+    </button>
+
+    <button class="btn btn-success" (click)="agregar()">
+      POST: agregar elemento
+    </button>
+  </div>
+
+  <h4>Estado Redux / NgRx</h4>
+
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let item of (items$ | async)">
+      #{{ item.id }} - {{ item.nombre }}
+    </li>
+  </ul>
+</div>
