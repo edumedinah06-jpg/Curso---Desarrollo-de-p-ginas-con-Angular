@@ -1,0 +1,39 @@
+<main style="max-width: 1100px; margin: 0 auto; padding: 28px;">
+  <header class="card" style="margin-bottom: 20px;">
+    <h1>Angular — Mapbox, Animaciones y Click Tracking</h1>
+    <p>Proyecto integrador del curso.</p>
+  </header>
+
+  <section class="card" style="margin-bottom: 20px;">
+    <h2>Click Tracking con Redux</h2>
+    <p>Haz click en los elementos con la directiva personalizada. Los contadores se actualizan de forma reactiva.</p>
+
+    <div style="display: flex; gap: 10px; flex-wrap: wrap; margin: 15px 0;">
+      <button appClickTracking data-tracking-tag="boton-principal">Botón principal</button>
+      <button appClickTracking data-tracking-tag="boton-secundario">Botón secundario</button>
+      <button appClickTracking data-tracking-tag="boton-demo">Botón demo</button>
+    </div>
+
+    <div *ngIf="trackingCounts$ | async as counts">
+      <h3>Tracking tags</h3>
+      <ul>
+        <li><strong>boton-principal:</strong> {{ counts['boton-principal'] || 0 }}</li>
+        <li><strong>boton-secundario:</strong> {{ counts['boton-secundario'] || 0 }}</li>
+        <li><strong>boton-demo:</strong> {{ counts['boton-demo'] || 0 }}</li>
+      </ul>
+    </div>
+
+    <p>
+      <strong>Total de clicks:</strong>
+      {{ totalClicks$ | async }}
+    </p>
+  </section>
+
+  <section style="margin-bottom: 20px;">
+    <app-animated-panel [count]="(totalClicks$ | async) || 0"></app-animated-panel>
+  </section>
+
+  <section>
+    <app-map></app-map>
+  </section>
+</main>

@@ -1,0 +1,23 @@
+<div class="card">
+  <h2>Mapbox + Marker + Popover</h2>
+  <p>El marker es interactivo: al hacer click se muestra el popup.</p>
+
+  <mgl-map
+    [style]="'mapbox://styles/mapbox/streets-v11'"
+    [zoom]="[10]"
+    [center]="center"
+    [accessToken]="accessToken"
+    style="height: 360px; width: 100%; display: block;">
+    <mgl-marker
+      [lngLat]="center"
+      (markerClick)="togglePopup()">
+    </mgl-marker>
+
+    <mgl-popup *ngIf="showPopup"
+      [lngLat]="center"
+      [closeOnClick]="false">
+      <strong>¡Marker seleccionado!</strong>
+      <p>Este mensaje aparece al hacer click en el marker.</p>
+    </mgl-popup>
+  </mgl-map>
+</div>
