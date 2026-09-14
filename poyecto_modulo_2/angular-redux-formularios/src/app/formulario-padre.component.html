@@ -1,0 +1,16 @@
+<div class="mb-4">
+  <h2>Formulario reactivo y comunicación entre componentes</h2>
+  <p>
+    El componente padre contiene al componente hijo y recibe su evento mediante
+    <strong>@Output + EventEmitter</strong>.
+  </p>
+</div>
+
+<!-- Componente hijo con formulario -->
+<app-formulario-hijo
+  (formularioEnviado)="recibirFormulario($event)">
+</app-formulario-hijo>
+
+<div class="alert alert-success mt-4" *ngIf="mensajeRecibido">
+  {{ mensajeRecibido }}
+</div>

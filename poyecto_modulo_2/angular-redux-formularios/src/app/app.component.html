@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/inicio">Angular Curso</a>
+    <div class="navbar-nav">
+      <a class="nav-link" routerLink="/inicio">Inicio</a>
+      <a class="nav-link" routerLink="/formularios">Formularios</a>
+      <a class="nav-link" routerLink="/votos">Votación Redux</a>
+    </div>
+  </div>
+</nav>
+
+<header class="container py-4">
+  <h1>{{ titulo }}</h1>
+</header>
+
+<main class="container pb-5">
+  <!-- Enrutador raíz solicitado -->
+  <router-outlet></router-outlet>
+</main>
